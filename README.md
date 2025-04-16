@@ -139,7 +139,7 @@ This uses Windows-specific headers (conio.h, windows.h). Cross-platform compatib
 - Anaya Shah
 - Yashvi Doshi
 - Yash Judal
-  GitHub: [@syntax-ke-shikar](https://github.com/syntax-ke-shikar)
+- GitHub: [@syntax-ke-shikar](https://github.com/syntax-ke-shikar)
 
 ## What Did You Learn?
 
