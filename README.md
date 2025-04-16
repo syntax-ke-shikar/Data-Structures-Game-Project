@@ -109,8 +109,9 @@ The game uses a point-based scoring system where the player can earn or lose poi
 
 ![Game Start Screen](images/StartMenu.png)
 ![Maze with Obstacles](images/Maze1.png)
-![Score and Leaderboard](images/Leaderboard.png)
+![Automatic Mode](images/AutoMode.png)
 ![Game Over Screen](images/GameOver.png)
+![Score and Leaderboard](images/Leaderboard.png)
 
 
 ## Functionalities (Detailed)
