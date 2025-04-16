@@ -187,4 +187,32 @@ In a more advanced version of this game:
 
 Dijkstra’s algorithm is key in understanding weighted graphs and shortest path algorithms used in navigation systems, games, and network routing.
 
+##  Known Bugs & Issues
+
+While the game is functional and interactive, the following bugs and areas for improvement have been identified:
+
+1. **Multiplayer Mode Crash**:
+   - The game sometimes **abruptly ends** during multiplayer sessions.
+   - Likely due to race conditions or index out-of-bounds in player update loops.
+
+2. **Maze Display Refresh Inefficiency**:
+   - Every call to `displayMaze()` **clears the screen**, even for small updates.
+   - This leads to flickering and unnecessary redraws.
+
+3. **Leaderboard Misalignment**:
+   - The output of the **leaderboard is not properly aligned**.
+   - Player names and scores do not appear in clean columns.
+
+4. **Platform Dependency**:
+   - Uses Windows-specific headers like `<conio.h>` and `<windows.h>`, so it won't work on Linux or macOS without porting.
+
+5. **No Input Validation**:
+   - Inconsistent handling of invalid inputs in the main menu or name entry can cause erratic behavior.
+
+###  Planned Fixes:
+- Optimize the `displayMaze()` function to use **partial redraws** or **double buffering**.
+- Refactor multiplayer logic for better state management.
+- Align leaderboard output using `setw()` or formatted I/O.
+- Abstract platform-dependent code to improve portability.
+
 ---
