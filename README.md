@@ -90,7 +90,7 @@ md
 - *Leaderboard*: Maintains and updates sorted player scores.
 - *Profile Handling*: Save/load functionality via linked lists.
 
-## Faq Q&A
+## FAQ
 
 *Q1. What algorithm is used to generate the maze?*  
 *A:* A depth-first traversal ensures every cell is reachable. The graph structure allows creation of paths while maintaining walls between unvisited nodes.
