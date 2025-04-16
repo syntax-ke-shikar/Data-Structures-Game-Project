@@ -106,12 +106,12 @@ The game uses a point-based scoring system where the player can earn or lose poi
 
 ## Sample Output
 
-Include screenshots or gameplay visuals in the images folder and reference them like:
+
 
 md
-![Game Start Screen](images/start_screen.png)
-![Maze with Obstacles](images/maze_obstacles.png)
-![Score and Leaderboard](images/score_leaderboard.png)
+![Game Start Screen](images/"Start Menu.png")
+![Maze with Obstacles](images/Maze1.png)
+![Score and Leaderboard](Leaderboard.png)
 
 
 ## Functionalities (Detailed)
