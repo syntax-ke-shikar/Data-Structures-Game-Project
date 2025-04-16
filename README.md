@@ -90,7 +90,7 @@ md
 - *Leaderboard*: Maintains and updates sorted player scores.
 - *Profile Handling*: Save/load functionality via linked lists.
 
-## Conceptual Q&A
+## Faq Q&A
 
 *Q1. What algorithm is used to generate the maze?*  
 *A:* A depth-first traversal ensures every cell is reachable. The graph structure allows creation of paths while maintaining walls between unvisited nodes.
@@ -135,7 +135,10 @@ This uses Windows-specific headers (conio.h, windows.h). Cross-platform compatib
 
 ## Contributors
 
-- *Shikhar Kumar*  
+- Sharvil Shah
+- Anaya Shah
+- Yashvi Doshi
+- Yash Judal
   GitHub: [@syntax-ke-shikar](https://github.com/syntax-ke-shikar)
 
 ## What Did You Learn?
