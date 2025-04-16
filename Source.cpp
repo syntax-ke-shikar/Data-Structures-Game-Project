@@ -1,4 +1,3 @@
-﻿//               22i-8759  __  22i-2553  __ SE-D  __Final Project
 #include <iostream>
 #include "gameH.h"
 #include <string>
