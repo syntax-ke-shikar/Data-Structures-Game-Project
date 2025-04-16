@@ -150,6 +150,7 @@ This project provided practical insights into the real-world application of data
 - *Linked List for Dynamic Leaderboards*: Gained experience with sorted linked lists to maintain a flexible and dynamic high score system.
 - *Console Programming*: Learned to manipulate console output, cursor control, and real-time input using low-level programming techniques.
 - *Data Management*: Implemented user profiles and persistent score tracking.
+- *File Handling* : For implementing the leaderboard logic.
 - *Modular Programming*: Experienced the benefits of separating game logic and utilities into header files like GameH.h.
 
 ---
