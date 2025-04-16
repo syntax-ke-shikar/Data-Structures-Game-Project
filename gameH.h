@@ -20,43 +20,37 @@ HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
 COORD CursorPosition;
 
 
-//function to get the x y coordinates to cout anything lke grid or border and any text
-void getxycoordinates(int x, int y) {
+
+void getxycoordinates(int x, int y) {                                  //function to get the x y coordinates to cout anything lke grid or border and any text
     CursorPosition.X = x;
     CursorPosition.Y = y;
     SetConsoleCursorPosition(console, CursorPosition);
 }
 
 
-// Function to set  text color
-void setColor(int color) {
+                                                       
+void setColor(int color) {                                               // Function to set  text color
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-    SetConsoleTextAttribute(hConsole, color);
+    SetConsoleTextAttribute(hConsole, color);     
 }
 
 
-
-
-
-//struct of car for indicating the position of car
-struct Car {
+struct Car {                                                              //struct of car for indicating the position of car
 public:
     int positionX;
     int positionY;
 };
 
 
-// structure of obstacle to save the x,y position and score value 
-struct Obstacle {
+struct Obstacle {                                                  // structure of obstacle to save the x,y position and score value 
     int positionX;
     int positionY;
     int scoreImpact;
 };
 
 
-//structure of collected items for saving x,y coordinates
-//  on grid ,score value, its type and its representation sign
-struct collectedItems {
+struct collectedItems {                         //structure of collected items for saving x,y coordinates
+                                                 //  on grid ,score value, its type and its representation sign
     int positionX;
     int positionY;
     int scoreValue;
@@ -64,15 +58,8 @@ struct collectedItems {
     char sign;
 };
 
-
-
-
-
-
-
-//creating a linked list class especially for collected items data type
-//  to store the collected items in linked list as mentionned in project document
-class CollectedItemsList {
+class CollectedItemsList {                    //creating a linked list class especially for collected items data type
+                                              //  to store the collected items in linked list as mentionned in project document
 private:
     struct listNode {
         collectedItems item;
@@ -81,7 +68,7 @@ private:
         listNode(const collectedItems& newItem) : item(newItem), next(nullptr) {}
     };
 
-    listNode* head; // Points to the head of the linked list
+    listNode* head;                            // Points to the head of the linked list
 
 public:
     // Constructor
@@ -92,14 +79,14 @@ public:
         clear();
     }
 
-    // Function to add a new collected item to the linked list
+                                                      // Function to add a new collected item to the linked list
     void addItem(const collectedItems& newItem) {
         listNode* newNode = new listNode(newItem);
         newNode->next = head;
         head = newNode;
     }
 
-    // Function to calculate the total number of items of a given type
+                                                                // Function to calculate the total number of items of a given type
     int calculateTotalByType(const std::string& itemType) const {
         int totalCount = 0;
 
@@ -116,7 +103,7 @@ public:
         return totalCount;
     }
 
-    // Function to clear the linked list and free memory
+                                               // Function to clear the linked list and free memory
     void clear() {
         listNode* current = head;
         while (current != nullptr) {
