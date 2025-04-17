@@ -1,6 +1,6 @@
 # Race Car Game – A Data Structures-Based Console Project
 
-This repository contains a *C++ console-based Race Car Game, developed as part of a semester project for the **CS-2001 Data Structures course (Fall 2023)* at *FAST NUCES. This project offers a creative and interactive approach to learning and applying core data structures such as **graphs, **queues, **linked lists, **stacks, and **arrays* through the development of a real-time game.
+This repository contains a C++ console-based Race Car Game, developed as part of a semester project for the *CS-2001 Data Structures course (Fall 2023)* at FAST NUCES. This project offers a creative and interactive approach to learning and applying core data structures such as *graphs*, *queues*, *linked lists*, *stacks*, and *arrays* through the development of a real-time game.
 
 ## Table of Contents
 
@@ -106,12 +106,22 @@ The game uses a point-based scoring system where the player can earn or lose poi
 
 ## Sample Output
 
+<p align="center">
+  <img src="images/StartMenu1.png" width="500" alt="Game Start Screen"/>
+</p>
+<p align="center">
+  <img src="images/Maze2.png" width="500" alt="Maze with Obstacles"/>
+</p>
+<p align="center">
+  <img src="images/AutoMode1.png" width="500" alt="Automatic Mode"/>
+</p>
+<p align="center">
+  <img src="images/GameOver1.png" width="500" alt="Game Over Screen"/>
+</p>
+<p align="center">
+  <img src="images/Leaderboard1.png" width="500" alt="Score and Leaderboard"/>
+</p>
 
-![Game Start Screen](images/StartMenu.png)
-![Maze with Obstacles](images/Maze1.png)
-![Automatic Mode](images/AutoMode.png)
-![Game Over Screen](images/GameOver.png)
-![Score and Leaderboard](images/Leaderboard.png)
 
 
 ## Functionalities (Detailed)
@@ -193,7 +203,10 @@ Though not used for maze generation, *Dijkstra's algorithm* can be applied to ca
    - Repeat until all nodes are visited or the destination node’s shortest distance is finalized.
 
 
-![Flowchart](images/DijktraAlgorithm.png)
+<p align="center">
+  <img src="images/DijktraAlgorithm.png" width="500" alt="Flowchart"/>
+</p>
+
 
 #### Application in the Game:
 
@@ -229,10 +242,10 @@ Dijkstra’s algorithm is key in understanding weighted graphs and shortest path
 | Bug / Issue | Description | Planned Fix / Solution | Example / Code Fix |
 |-------------|-------------|--------------------------|---------------------|
 | **Multiplayer Mode Crash** | Game abruptly ends during multiplayer mode, likely due to player position updates or collisions going out of bounds. | Add boundary checks and player state validation during movement. | ```cpp\nif (playerPos.x >= 0 && playerPos.x < width && playerPos.y >= 0 && playerPos.y < height) {\n    // safe move\n}\n``` |
-| **Screen Flicker on Maze Update** | `displayMaze()` clears the entire screen every time, causing flickering. | Remove `system("cls")` from `displayMaze()` and call it only once when absolutely necessary (e.g., on game reset). | 🔧 In `displayMaze()` function:<br>❌ Remove:<br>```cpp\nsystem("cls");\n``` |
+| **Screen Flicker on Maze Update** | `displayMaze()` clears the entire screen every time, causing flickering. | Remove `system("cls")` from `displayMaze()` and call it only once when absolutely necessary (e.g., on game reset). |  In `displayMaze()` function:<br> Remove:<br>```cpp\nsystem("cls");\n``` |
 | **Leaderboard Misalignment** | Player names and scores are not aligned in columns. | Use `setw()` and `left/right` from `<iomanip>` to format output. | ```cpp\ncout << setw(15) << left << name << setw(5) << right << score << endl;\n``` |
 | **Platform Dependency** | Uses `<windows.h>` and `<conio.h>`, limiting compatibility. | Wrap platform-specific code using `#ifdef _WIN32` and abstract common input/output. | ```cpp\n#ifdef _WIN32\n#include <windows.h>\n#else\n// POSIX alternative\n#endif\n``` |
-| **No Input Validation** | User input (e.g. names, menu options) isn't checked, causing crashes or undefined behavior. | Add checks for valid input ranges and sanitize user input strings. | ```cpp\nif (choice < 1 || choice > 3) {\n    cout << "Invalid input. Try again.";\n}\n``` |
+| **No Input Validation** | User input (e.g. names, menu options) isn't checked, causing crashes or undefined behavior. | Add checks for valid input ranges and sanitize user input strings. | ```cpp\nif (choice < 1 OR choice > 3) {\n    cout << "Invalid input. Try again.";\n}\n``` |
 
 
 ---
