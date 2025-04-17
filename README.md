@@ -241,7 +241,7 @@ Dijkstra’s algorithm is key in understanding weighted graphs and shortest path
 
 | Bug / Issue | Description | Planned Fix / Solution | Example / Code Fix |
 |-------------|-------------|--------------------------|---------------------|
-| **Multiplayer Mode Crash** | Game abruptly ends during multiplayer mode, likely due to player position updates or collisions going out of bounds. | Add boundary checks and player state validation during movement. | ```cpp\nif (playerPos.x >= 0 && playerPos.x < width && playerPos.y >= 0 && playerPos.y < height) {\n    // safe move\n}\n``` |
+| **Automatic Mode Crash** | Game abruptly ends during auto mode, likely due to player position updates or collisions going out of bounds. | Add boundary checks and player state validation during movement. | ```cpp\nif (playerPos.x >= 0 && playerPos.x < width && playerPos.y >= 0 && playerPos.y < height) {\n    // safe move\n}\n``` |
 | **Screen Flicker on Maze Update** | `displayMaze()` clears the entire screen every time, causing flickering. | Remove `system("cls")` from `displayMaze()` and call it only once when absolutely necessary (e.g., on game reset). |  In `displayMaze()` function:<br> Remove:<br>```cpp\nsystem("cls");\n``` |
 | **Leaderboard Misalignment** | Player names and scores are not aligned in columns. | Use `setw()` and `left/right` from `<iomanip>` to format output. | ```cpp\ncout << setw(15) << left << name << setw(5) << right << score << endl;\n``` |
 | **Platform Dependency** | Uses `<windows.h>` and `<conio.h>`, limiting compatibility. | Wrap platform-specific code using `#ifdef _WIN32` and abstract common input/output. | ```cpp\n#ifdef _WIN32\n#include <windows.h>\n#else\n// POSIX alternative\n#endif\n``` |
