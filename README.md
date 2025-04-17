@@ -192,6 +192,9 @@ Though not used for maze generation, *Dijkstra's algorithm* can be applied to ca
    - Continue with the unvisited node that has the smallest tentative distance.
    - Repeat until all nodes are visited or the destination node’s shortest distance is finalized.
 
+
+![Flowchart](images/DijktraAlgorithm.png)
+
 #### Application in the Game:
 
 In a more advanced version of this game:
@@ -221,32 +224,15 @@ Dijkstra’s algorithm is key in understanding weighted graphs and shortest path
 *Q6. How is collision detected?*  
 *A:* The grid array is checked at the player's current position. If an obstacle or wall exists at that cell, a collision is triggered.
 
-##  Known Bugs & Issues
+##  Known Bugs & Fixes
 
-While the game is functional and interactive, the following bugs and areas for improvement have been identified:
+| Bug / Issue | Description | Planned Fix / Solution | Example / Code Fix |
+|-------------|-------------|--------------------------|---------------------|
+| **Multiplayer Mode Crash** | Game abruptly ends during multiplayer mode, likely due to player position updates or collisions going out of bounds. | Add boundary checks and player state validation during movement. | ```cpp\nif (playerPos.x >= 0 && playerPos.x < width && playerPos.y >= 0 && playerPos.y < height) {\n    // safe move\n}\n``` |
+| **Screen Flicker on Maze Update** | `displayMaze()` clears the entire screen every time, causing flickering. | Remove `system("cls")` from `displayMaze()` and call it only once when absolutely necessary (e.g., on game reset). | 🔧 In `displayMaze()` function:<br>❌ Remove:<br>```cpp\nsystem("cls");\n``` |
+| **Leaderboard Misalignment** | Player names and scores are not aligned in columns. | Use `setw()` and `left/right` from `<iomanip>` to format output. | ```cpp\ncout << setw(15) << left << name << setw(5) << right << score << endl;\n``` |
+| **Platform Dependency** | Uses `<windows.h>` and `<conio.h>`, limiting compatibility. | Wrap platform-specific code using `#ifdef _WIN32` and abstract common input/output. | ```cpp\n#ifdef _WIN32\n#include <windows.h>\n#else\n// POSIX alternative\n#endif\n``` |
+| **No Input Validation** | User input (e.g. names, menu options) isn't checked, causing crashes or undefined behavior. | Add checks for valid input ranges and sanitize user input strings. | ```cpp\nif (choice < 1 || choice > 3) {\n    cout << "Invalid input. Try again.";\n}\n``` |
 
-1. **Multiplayer Mode Crash**:
-   - The game sometimes **abruptly ends** during multiplayer sessions.
-   - Likely due to race conditions or index out-of-bounds in player update loops.
-
-2. **Maze Display Refresh Inefficiency**:
-   - Every call to `displayMaze()` **clears the screen**, even for small updates.
-   - This leads to flickering and unnecessary redraws.
-
-3. **Leaderboard Misalignment**:
-   - The output of the **leaderboard is not properly aligned**.
-   - Player names and scores do not appear in clean columns.
-
-4. **Platform Dependency**:
-   - Uses Windows-specific headers like `<conio.h>` and `<windows.h>`, so it won't work on Linux or macOS without porting.
-
-5. **No Input Validation**:
-   - Inconsistent handling of invalid inputs in the main menu or name entry can cause erratic behavior.
-
-###  Planned Fixes:
-- Optimize the `displayMaze()` function to use **partial redraws** or **double buffering**.
-- Refactor multiplayer logic for better state management.
-- Align leaderboard output using `setw()` or formatted I/O.
-- Abstract platform-dependent code to improve portability.
 
 ---
