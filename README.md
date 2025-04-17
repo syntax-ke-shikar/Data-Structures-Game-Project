@@ -11,10 +11,12 @@ This repository contains a C++ console-based Race Car Game, developed as part of
 - [Installation & Execution](#installation--execution)
 - [Game Controls](#game-controls)
 - [Sample Output](#sample-output)
-- [Functionalities (Detailed)](#functionalities-detailed)
-- [Conceptual Q&A](#conceptual-qa)
+- [Functionalities ](#functionalities)
 - [GameH.h Customization](#gamehh-customization)
 - [Contributors](#contributors)
+- [Dijkstra's Algorithm in Maze Navigation](#Dijkstra's-Algorithm-in-Maze-Navigation)
+- [Conceptual Q&A](#conceptual-qa)
+- [Known Bugs & Fixes](#Known-Bugs-&-Fixes)
 
 ## Overview
 
@@ -124,7 +126,7 @@ The game uses a point-based scoring system where the player can earn or lose poi
 
 
 
-## Functionalities (Detailed)
+## Functionalities 
 
 - *Maze Generation*: DFS/BFS used to carve a valid path.
 - *Obstacle Management*: Queue ensures timed appearance and removal.
